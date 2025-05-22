@@ -1,0 +1,6 @@
+[
+	{
+	    "name": "Password Policy",
+	    "route": "/admin/password_policy"
+	}
+]
