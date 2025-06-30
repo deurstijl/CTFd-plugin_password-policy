@@ -81,12 +81,14 @@ def inject_into_routes(app):
             try:
                 data = request.get_json()
                 password = data.get("password")
-                if password:
+                if password and password !="":
                     valid, msg = check_password_policy(password)
                     if not valid:
                         abort(400, description=msg)
                 else:
-                    abort(400, description="No Password field discovered")
+                    # the password field is the "new password."
+                    # if this is empty we're not setting it, so we return
+                    return
             except Exception as e:
                 abort(400, description="Password policy validation failed.") 
         
