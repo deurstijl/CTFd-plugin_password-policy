@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
     passwordField.parentNode.appendChild(messageDiv);
   
     function getPolicy() {
-      return fetch("/password_policy.json")
+      return fetch("/files/password_policy.json")
         .then(res => res.json())
         .catch(() => null);
     }

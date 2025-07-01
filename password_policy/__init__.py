@@ -36,7 +36,7 @@ def define_docker_admin(app):
         policy = get_policy_config()
         return render_template("password_policy_config.html", policy=policy)
 
-    @admin_password_policy.route("/password_policy.json", methods=["GET"])
+    @admin_password_policy.route("/files/password_policy.json", methods=["GET"])
     def policy_json():
         return jsonify(get_policy_config())
 
