@@ -104,6 +104,12 @@ def inject_into_routes(app):
             except Exception as e:
                 abort(400, description="Password policy validation failed.")
 
+        elif endpoint=="auth.reset_password" and request.form.get("password"):
+            password = request.form.get("password")
+            valid, msg = check_password_policy(password)
+            if not valid:
+                abort(400, description=msg)
+        
 def load(app):
     register_plugin_assets_directory(app, base_path='/plugins/password_policy/assets')
     # This line injects the JS globally into every page

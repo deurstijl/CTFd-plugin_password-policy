@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const heading = document.querySelector('main h1');
     if (heading) {
       const text = heading.textContent.trim();
-      if (text !== 'Register' && text !== 'Settings') {
+      if (text !== 'Register' && text !== 'Settings' && text!=='Reset Password') {
         return;
       }
     }
