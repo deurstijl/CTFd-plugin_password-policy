@@ -38,6 +38,11 @@ document.addEventListener("DOMContentLoaded", function () {
       const form = passwordField.closest('form');
       form.addEventListener("submit", function (e) {
         const password = passwordField.value;
+        if (password.length === 0) {
+          messageDiv.innerText = ""; // Clear any previous messages
+          passwordField.classList.remove("is-invalid"); // Remove any invalid styling
+          return; // Allow the form to submit without policy checks
+        }
         const errors = validatePassword(password, policy);
         const confirm = document.getElementById('confirm');
         if (confirm && confirm.value === password){
